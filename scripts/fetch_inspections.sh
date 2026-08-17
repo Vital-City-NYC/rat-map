@@ -13,7 +13,7 @@ while true; do
   curl -sf -G "https://data.cityofnewyork.us/resource/p937-wjvj.csv" \
     --data-urlencode "\$select=inspection_date,result,latitude,longitude,borough" \
     --data-urlencode "\$where=inspection_type='Initial'" \
-    --data-urlencode "\$order=job_ticket_or_work_order_id" \
+    --data-urlencode "\$order=job_id" \
     --data-urlencode "\$limit=$page" --data-urlencode "\$offset=$offset" > "$tmp"
   rows=$(( $(wc -l < "$tmp") - 1 ))
   if [ "$rows" -le 0 ]; then rm "$tmp"; break; fi
