@@ -631,9 +631,9 @@ function main([S, CD, NTA, HEX, PTS, CDGJ, NTAGJ]) {
   }
   function mapStyle() {
     return { version: 8, sources: { carto: { type:'raster',
-        tiles: ['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
-                'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
-                'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'],
+        tiles: ['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png?key=cb1_2r82_1_ae4e70b6166057bc41b89638',
+                'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png?key=cb1_2r82_1_ae4e70b6166057bc41b89638',
+                'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png?key=cb1_2r82_1_ae4e70b6166057bc41b89638'],
         tileSize: 256, attribution:'© CARTO © OpenStreetMap contributors' } },
       layers: [{ id:'carto', type:'raster', source:'carto' }] };
   }
@@ -644,9 +644,9 @@ function main([S, CD, NTA, HEX, PTS, CDGJ, NTAGJ]) {
     style: {
       version: 8,
       sources: { carto: { type:'raster',
-        tiles: ['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
-                'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
-                'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'],
+        tiles: ['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png?key=cb1_2r82_1_ae4e70b6166057bc41b89638',
+                'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png?key=cb1_2r82_1_ae4e70b6166057bc41b89638',
+                'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png?key=cb1_2r82_1_ae4e70b6166057bc41b89638'],
         tileSize: 256, attribution:'© CARTO © OpenStreetMap contributors' } },
       layers: [{ id:'carto', type:'raster', source:'carto' }]
     },
