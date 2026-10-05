@@ -15,7 +15,10 @@ fetch_dataset() {
   : > "$out"
   while true; do
     local tmp=$(mktemp)
+    # see fetch_inspections.sh: a Socrata throttle arrives as 403, which curl's
+    # default retry set skips, so retry on all errors.
     curl -sf -G "https://data.cityofnewyork.us/resource/${id}.csv" \
+      --retry 5 --retry-delay 15 --retry-all-errors --max-time 600 \
       --data-urlencode "\$select=$FIELDS" \
       --data-urlencode "\$where=complaint_type='Rodent' AND descriptor='Rat Sighting'" \
       --data-urlencode "\$order=unique_key" \

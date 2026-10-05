@@ -10,7 +10,11 @@ out=inspections_initial.csv
 offset=0; page=100000
 while true; do
   tmp=$(mktemp)
+  # Socrata reports anonymous per-IP throttling as a 403, not a 429, so the retry
+  # has to cover all errors: curl's default set skips 403 and one blip would kill
+  # a 21-page pull. After the retries are spent curl still fails and set -e stops us.
   curl -sf -G "https://data.cityofnewyork.us/resource/p937-wjvj.csv" \
+    --retry 5 --retry-delay 15 --retry-all-errors --max-time 600 \
     --data-urlencode "\$select=inspection_date,result,latitude,longitude,borough" \
     --data-urlencode "\$where=inspection_type='Initial'" \
     --data-urlencode "\$order=job_id" \
